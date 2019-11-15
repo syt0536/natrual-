@@ -1,0 +1,37 @@
+<div class='zhongjian'>
+  <div class='zhongbu'>     
+    <div class="row">
+      <div class="col-lg-6">
+          <h2 style='color:wheat'>what are you looking for?</h2>
+          <img  class='lhp'src='../../../assets/11111.png'>
+          <mat-tab-group [color]='color' [backgroundColor]='color2' headerPosition="below">transparent
+            <mat-tab label="Compounds" >        
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Compounds name" #content>
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button"  (click)="chazhao()">Search</button>
+                </span>
+              </div><!-- /input-group -->
+            </mat-tab>
+            <mat-tab label="Target">         
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Target name" #contentt>
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button"  (click)="chazhaot()">Search</button>
+                </span>
+              </div><!-- /input-group -->
+            </mat-tab>
+          <mat-tab label="Pathway">         
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Pathway name" #content>
+              <span class="input-group-btn">
+              <!-- <button class="btn btn-default" type="button" routerLink="'/table'+" >查找</button> -->
+              <button class="btn btn-default" type="button"  (click)="chazhao()">Search</button>
+              </span>
+            </div><!-- /input-group --> 
+          </mat-tab>
+        </mat-tab-group>
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<h5>Target Properties</h5>
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 100%">
+  <tr>
+    <th>pref_name</th>
+    <th class="mdl-data-table__cell--non-numeric">
+        {{targetinf?.pref_name}}
+
+    </th>
+  </tr>
+  <!-- <tr>
+    <th>Smiles</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.canonical_smiles}}</td>
+  </tr> -->
+  <tr>
+    <th>target_chembl_id</th>
+    <td class="mdl-data-table__cell--non-numeric">{{targetinf?.target_chembl_id}}</td>
+  </tr>
+  <tr>
+    <th>organism</th>
+    <td class="mdl-data-table__cell--non-numeric">{{targetinf?.organism}}</td>
+  </tr>
+  <tr>
+    <th>target_type</th>
+    <td class="mdl-data-table__cell--non-numeric">{{targetinf?.target_type}}</td>
+  </tr>
+  <!-- <tr>
+    <th>HBD</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.numhbd}}</td>
+  </tr>
+  <tr>
+    <th>HBA</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.numhba}}</td>
+  </tr>
+  <tr>
+    <th>PSA</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.tpsa}}</td>
+  </tr>
+  <tr>
+    <th>RTB</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.numrotatablebonds}}</td>
+  </tr>
+  <tr>
+    <th>Targets</th>
+    <td class="mdl-data-table__cell--non-numeric">
+<a [routerLink]="['/target-table/?database_id='+moleculeStructure.database_id]" routerLinkActive="router-link-active">{{pageMeta.total_results}}</a>
+
+    </td>
+  </tr> -->
+</table>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Close</button>
+</div>

@@ -1,0 +1,47 @@
+<nav class="navbar navbar-inverse  navbar-default navbar-static-top">
+  <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">  
+      <ul class="nav navbar-nav">    
+        <li role="presentation" class="active"><a href="">Home</a></li>
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Table <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li role="presentation"><a [routerLink]="['/compound-table/1']">Compound Table</a></li>
+            <li role="presentation"><a [routerLink]="['/target-table/?search=1']">Target Table</a></li>
+          </ul>
+        </li>
+        <li role="presentation"><a [routerLink]="['/compound/NP1']">Compound</a></li>
+        <li role="presentation"><a [routerLink]="['/target/T1']" >Target</a></li>
+        <li role="presentation"><a [routerLink]="['/search']" >Search</a></li>
+        <li role="presentation"><a [routerLink]="['/search']" >Help</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+               aria-expanded="false">Tools<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="sea">Target Prediction</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a routerLink="chemical-screening">Chemical Screening</a></li>
+            </ul>
+          </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+               aria-expanded="false">Links<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="http://lilab.ecust.edu.cn/chemmapper/" target="_blank">Chemmapper</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="http://lilab.ecust.edu.cn/pharmmapper/index.php" target="_blank">Pharmmapper</a></li>
+            </ul>
+          </li>
+          <li role="presentation"><a [routerLink]="['/search']" >Download</a></li>
+          <li role="presentation"><a [routerLink]="['/contact']" >Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- <app-bottom></app-bottom> -->
+<div class='content'>
+<router-outlet></router-outlet>
+</div>

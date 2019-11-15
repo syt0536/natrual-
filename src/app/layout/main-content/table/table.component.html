@@ -1,0 +1,47 @@
+<div class='zhongjian'>
+  <div class='zhongbu'>     
+    <div class="row">
+      <img  class='lhp'src='../../../assets/11111.png'>
+        <!-- <img src='../../../../assets/bb97f0c8-3e92-4ff4-62c3-a99a5925a0b5.gif'> -->
+      <div class="col-lg-6">      
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for ..." #content>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" (click)='hqnew()'>Search</button>
+            </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+  </div>
+</div>
+<!--表格-->
+<div  class = 'example-container mat-elevation-z8' > 
+  <div class="topContainer" >
+    <label> File Name: <input type="text" matInput id="fileName" placeholder="export" [(ngModel)]="fileName1"/> </label>
+    <label> Sheet Name: <input type="text" matInput id="sheetName" placeholder="ag-grid" maxlength="31" [(ngModel)]="sheetName1" /> </label>
+    <label> <button mat-raised-button color="primary"(click)="onBtExport()">Export to Csv</button> </label>
+  </div>
+
+  <ag-grid-angular 
+    #agGrid
+    style="width: 100%; height: 550px;"
+    class="ag-theme-material"
+    [rowData]="images"
+    [columnDefs]="columnDefs"
+    [suppressHorizontalScroll]='true'
+    (rowClicked)="cellClicked($event)"
+    (gridReady)="onGridReady($event)"
+    [suppressCellSelection]='true'
+    [suppressRowClickSelection]='true'
+    (onSortChanged)='sortchanged($event)'
+    >
+  </ag-grid-angular>
+</div>
+<div class="mdl-cell mdl-cell--12-col">
+  <mat-paginator [length]="pageMeta?.total_results"
+         [pageSize]="pageMeta?.per_page"
+         [pageSizeOptions]="pageSizeOptions"
+         (page)="pageChange($event)"
+  ></mat-paginator>
+</div>
+

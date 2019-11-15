@@ -1,0 +1,40 @@
+.zhongjian{
+  height:300px;width:100%;
+  background-color: #F5F5F5;
+  position: relative;
+  margin:0px;
+}
+.row{
+  height:330px;width:100%;
+  background-color:#3F51B5;
+  /* background-image: linear-gradient(to top,#3F51B5 0%,#798BF3 50%,#3F51B5 100%); */
+  background-size: 100% 100%;
+  margin: auto;
+  left: 0;
+          right: 0;
+          bottom: 0;
+          top:0;
+  padding: 0px;
+  position: absolute;
+}
+.mat-tab-header{
+  color:white;
+  background-color: aqua;
+}
+.col-lg-6{
+  margin: auto;
+  left: 0;
+          right: 0;
+          bottom: 0;
+          top:100px;
+  padding: 0px;
+  position: absolute;  
+}
+.lhp{
+  height:38px;
+  float: left;
+}
+h2{
+  margin-left:100px;
+  text-shadow: 5px 5px 3px red ;
+}

@@ -1,0 +1,45 @@
+/*搜索框
+*/
+.lhp{
+    height:50px;
+    display:inline;
+    float:left;
+    margin-right:10px;
+    margin-left:10px;
+    padding-right:0px;
+    padding-bottom: 11px;
+  }
+  .col-lg-6{
+    margin-left:0px;
+    padding-left:0px;
+  }
+  .zhongjian{margin-top:10px;overflow-x:hidden;
+  }
+  /*表格
+  */
+  .mat-elevation-z8{
+    border:1px;
+    box-shadow:0px 5px 5px -3px rgba(0,0,0,.12); 
+    /* box-shadow:0px 8px 10px 1px rgba(0,0,0,.14);  */
+    box-shadow:0px 2px 5px 1px rgba(0,0,0,.12); 
+  }
+  table {
+    width: 100%;
+    table-layout: fixed
+  }
+  td{
+    height:60px;
+  }
+  
+  th {
+      width:25%;
+  }
+  a{text-decoration: none}
+  .mdl-data-table{
+    white-space: normal;
+    width: 100%;
+  }
+  
+  .th-width {
+    width: 120px;
+  }

@@ -1,0 +1,373 @@
+<h2 class='bt'>Compound Datails</h2>
+<hr>
+<div class="container-fluid">
+	<div class="row-fluid" *ngFor='let ar2 of arr2'>
+	<!--  -->
+		<div class="span12" *ngFor='let ar of arr1' >
+			<table class="table table-bordered" *ngFor='let image of arr' >
+				<tbody>
+            <tr class="info">
+                <td>
+                  Database Id
+                </td>
+                <td>
+                  {{image.database_id}}
+                </td>
+            </tr>
+					<tr>
+						<td>
+							Formula
+						</td>
+						<td>
+							{{image.formula}}
+						</td>
+					</tr>
+					<tr class="success">
+						<td>
+							Slogp
+						</td>
+						<td>
+							{{image.slogp}}
+						</td>
+					</tr>
+					<tr class="error">
+						<td>
+							Tpsa
+						</td>
+						<td>
+							{{image.tpsa}}
+						</td>
+					</tr>
+					<tr class="warning">
+						<td>
+							Amw
+						</td>
+						<td>
+							{{image.amw}}
+						</td>
+          </tr>
+          <tr >
+              <td>
+                Numrings
+              </td>
+              <td>
+                {{image.numrings}}
+              </td>
+            </tr>
+  
+					<tr class="info">
+						<td>
+							Canonical_smiles
+						</td>
+						<td>
+							{{image.canonical_smiles}}
+						</td>
+          </tr>
+          <tr >
+						<td>
+							Numrotatablebonds
+						</td>
+						<td>
+							{{image.numrotatablebonds}}
+						</td>
+          </tr>
+          <tr class="success">
+						<td>
+							Numhbd
+						</td>
+						<td>
+							{{image.numhbd}}
+						</td>
+          </tr>
+          <tr >
+						<td>
+							Numhba
+						</td>
+						<td>
+							{{image.numhba}}
+						</td>
+          </tr>
+          <tr class="warning">
+						<td>
+							Numheavyatoms
+						</td>
+						<td>
+							{{image.numheavyatoms}}
+						</td>
+		  </tr>
+		  <tr >
+			<td>
+				Chembl Id
+			</td>
+			<td><a  href="https://www.ebi.ac.uk/chembl/compound_report_card/{{ar.chembl_id}}" target="_blank" >
+				{{ar.chembl_id}}</a>
+			</td>
+</tr>
+<tr class="info">
+	<td>
+		Sn Id
+	</td>
+	<td>
+		{{ar.sn_id}}
+	</td>
+</tr>
+<tr >
+	<td>
+		Pubchem Cid
+	</td>
+	<td><a href='https://pubchem.ncbi.nlm.nih.gov/compound/{{ar.pubchem_cid}}' target="_blank">
+		{{ar.pubchem_cid}}</a>
+	</td>
+</tr>
+<tr class="success">
+	<td>
+		Np Id
+	</td>
+	<td>
+		{{ar.np_id}}
+	</td>
+</tr>
+<tr >
+	<td>
+		Iupac Name
+	</td>
+	<td>
+		{{ar2.iupac_name}}
+	</td>
+</tr>
+<tr class="warning">
+	<td>
+		Pref Name
+	</td>
+	<td>
+		{{ar2.pref_name}}
+	</td>
+</tr>
+<tr >
+	<td>
+		Cas
+	</td>
+	<td>
+		{{ar2.cas}}
+	</td>
+</tr>
+				</tbody>
+	  </table>
+	  <div *ngFor='let image of arr'>
+      <app-jsme class='jsme' [elementId]="'e'"
+      [width]="'550px'"
+      [height]="'650px'"
+      [option]="'depict nozoom noshowdraganddropsymbolindepictmode  '"
+	  [molString]="image.canonical_smiles"
+	  ></app-jsme></div>
+	  </div></div></div>
+	  <h2>NPD and Target</h2>
+	  <hr>
+	  <div *ngFor='let ar3 of arr3'>
+		<ul >
+			<li ><a (click)='onclick(ar3.derivative_id)' #click>{{ar3.derivative_id}}</a></li>
+		</ul>
+	  </div>
+	  <div  class = 'example-container mat-elevation-z8' > 
+		<table mat-table [dataSource]="arr4" class="mat-elevation-z8">
+		
+		  <!--- Note that these columns can be defined in any order.
+				The actual rendered columns are set as a property on the row definition" -->
+		
+		  <!-- Position Column -->
+		  <ng-container matColumnDef="Activity Type">
+			<th mat-header-cell *matHeaderCellDef> Activity Type </th>
+			<td mat-cell *matCellDef="let element"> {{element.activity_type}}
+	</td>
+		  </ng-container>
+		
+		  <!-- Name Column -->
+		  <ng-container matColumnDef="Activity Value">
+			<th mat-header-cell *matHeaderCellDef> Activity Value </th>
+			<td mat-cell *matCellDef="let element"> {{element.activity_value}}</td>
+		  </ng-container>
+		
+		  <!-- Weight Column -->
+		  <ng-container matColumnDef="Activity Relation">
+			<th mat-header-cell *matHeaderCellDef> Activity Relation </th>
+			<td mat-cell *matCellDef="let element"> {{element.activity_relation}} </td>
+		  </ng-container>
+		
+		  <!-- Symbol Column -->
+		  <ng-container matColumnDef="Activity Units">
+			<th mat-header-cell *matHeaderCellDef> Activity Units </th>
+			<td mat-cell *matCellDef="let element"> {{element.activity_units}} </td>
+		  </ng-container>
+		  <ng-container matColumnDef="Reference">
+			<th mat-header-cell *matHeaderCellDef> Reference</th>
+			<td mat-cell *matCellDef="let element"> {{element.reference}} </td>
+		  </ng-container>
+		  <!-- <ng-container matColumnDef="numrotatablebonds">
+			<th mat-header-cell *matHeaderCellDef> numrotatablebonds </th>
+			<td mat-cell *matCellDef="let element"> {{element.numrotatablebonds}} </td>
+		  </ng-container>
+		  < <ng-container matColumnDef="numhbd">
+			<th mat-header-cell *matHeaderCellDef> numhbd </th>
+			<td mat-cell *matCellDef="let element"> {{element.numhbd}} </td>
+		  </ng-container> -->
+		  <ng-container matColumnDef="Target Id">
+			<th mat-header-cell *matHeaderCellDef> Target Id </th>
+			<td mat-cell *matCellDef="let element"><a  [routerLink]="['/target/'+element.target_id]" routerLinkActive="router-link-active">{{element.target_id}} </a> </td>
+		  </ng-container>
+		  <ng-container matColumnDef="Data Source Db">
+			<th mat-header-cell *matHeaderCellDef> Data Source Db </th>
+			<td mat-cell *matCellDef="let element"> {{element.data_source_db}} </td>
+		  </ng-container> -->
+		
+		  <tr mat-header-row *matHeaderRowDef="displayedColumnsb"></tr>
+		  <tr mat-row *matRowDef="let row; columns: displayedColumnsb;"></tr>
+		</table>
+		</div>
+		<div class="mdl-cell mdl-cell--5-col">
+		  <mat-paginator [length]="pageMeta4?.total_results"
+						 [pageSize]="pageMeta4?.per_page"
+						 [pageSizeOptions]="pageSizeOptions"
+						 (page)="pageChangeb($event)"
+		  >
+		  </mat-paginator>
+		</div>
+	  <h2>Activity Data</h2>
+	  <hr>
+	  <div  class = 'example-container mat-elevation-z8' > 
+		<table mat-table [dataSource]="array" class="mat-elevation-z8">
+		
+		  <!--- Note that these columns can be defined in any order.
+				The actual rendered columns are set as a property on the row definition" -->
+		
+		  <!-- Position Column -->
+		  <ng-container matColumnDef="Activity Type Sub">
+			<th mat-header-cell *matHeaderCellDef> Activity Type Sub </th>
+			<td mat-cell *matCellDef="let element"> {{element.activity_type_sub}}
+	</td>
+		  </ng-container>
+		
+		  <!-- Name Column -->
+		  <ng-container matColumnDef="Activity Value">
+			<th mat-header-cell *matHeaderCellDef> Activity Value </th>
+			<td mat-cell *matCellDef="let element"> {{element.activity_value}}</td>
+		  </ng-container>
+		
+		  <!-- Weight Column -->
+		  <ng-container matColumnDef="Activity Relation">
+			<th mat-header-cell *matHeaderCellDef> Activity Relation </th>
+			<td mat-cell *matCellDef="let element"> {{element.activity_relation}} </td>
+		  </ng-container>
+		
+		  <!-- Symbol Column -->
+		  <ng-container matColumnDef="Activity Units">
+			<th mat-header-cell *matHeaderCellDef> Activity Units </th>
+			<td mat-cell *matCellDef="let element"> {{element.activity_units}} </td>
+		  </ng-container>
+		  <ng-container matColumnDef="Reference">
+			<th mat-header-cell *matHeaderCellDef> Reference</th>
+			<td mat-cell *matCellDef="let element"> {{element.reference}} </td>
+		  </ng-container>
+		  <!-- <ng-container matColumnDef="numrotatablebonds">
+			<th mat-header-cell *matHeaderCellDef> numrotatablebonds </th>
+			<td mat-cell *matCellDef="let element"> {{element.numrotatablebonds}} </td>
+		  </ng-container>
+		  < <ng-container matColumnDef="numhbd">
+			<th mat-header-cell *matHeaderCellDef> numhbd </th>
+			<td mat-cell *matCellDef="let element"> {{element.numhbd}} </td>
+		  </ng-container> -->
+		  <ng-container matColumnDef="Target Id">
+			<th mat-header-cell *matHeaderCellDef> Target Id </th>
+			<td mat-cell *matCellDef="let element"><a  [routerLink]="['/target/'+element.target_id]" routerLinkActive="router-link-active">{{element.target_id}} </a> </td>
+		  </ng-container>
+		  <ng-container matColumnDef="Data Source Db">
+			<th mat-header-cell *matHeaderCellDef> Data Source Db </th>
+			<td mat-cell *matCellDef="let element"> {{element.data_source_db}} </td>
+		  </ng-container> -->
+		
+		  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+		</div>
+		<div class="mdl-cell mdl-cell--5-col">
+		  <mat-paginator [length]="pageMetaa?.total_results"
+						 [pageSize]="pageMetaa?.per_page"
+						 [pageSizeOptions]="pageSizeOptions"
+						 (page)="pageChange($event)"
+		  >
+		  </mat-paginator>
+		</div>
+		//第二个
+		<div  class = 'example-container mat-elevation-z8' > 
+			<table mat-table [dataSource]="images" 
+			matSort
+			matSortActive="Database Id"
+			matSortDirection="desc"
+			class="mat-elevation-z8">
+			  <!-- Position Column -->
+			  <ng-container matColumnDef="Canonical Smiles" >
+				<th mat-header-cell *matHeaderCellDef> Canonical Smiles </th>
+				<td mat-cell *matCellDef="let element"> 
+				  <div class="mdl-cell mdl-cell--3-col">
+					<app-jsme  [elementId]="element.database_id"
+					[width]="'120px'"
+					[height]="'120px'"
+					[option]="'depict nozoom noshowdraganddropsymbolindepictmode '"
+					  [molString]='element.canonical_smiles'
+					></app-jsme>
+				  </div>
+				</td>
+			  </ng-container>
+			  <!-- Name Column -->
+			  <ng-container matColumnDef="Database Id">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Database Id </th>
+				<td mat-cell *matCellDef="let element">
+				  <a  [routerLink]="['/compound/'+element.database_id]" routerLinkActive="router-link-active">{{element.database_id}}</a> </td>
+			  </ng-container>
+			  <!-- Symbol Column -->
+			  <ng-container matColumnDef="Formula">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Formula </th>
+				<td mat-cell *matCellDef="let element"> {{element.formula}} </td>
+			  </ng-container>
+			  <!-- <ng-container matColumnDef="Standard Inchi">
+				<th mat-header-cell *matHeaderCellDef> Standard Inchi</th>
+				<td mat-cell *matCellDef="let element"> {{element.standard_inchi}} </td>
+			  </ng-container> -->
+			  <!-- <ng-container matColumnDef="numrotatablebonds">
+				<th mat-header-cell *matHeaderCellDef> numrotatablebonds </th>
+				<td mat-cell *matCellDef="let element"> {{element.numrotatablebonds}} </td>
+			  </ng-container>
+			  <ng-container matColumnDef="numhbd">
+				<th mat-header-cell *matHeaderCellDef> numhbd </th>
+				<td mat-cell *matCellDef="let element"> {{element.numhbd}} </td>
+			  </ng-container>
+			  <ng-container matColumnDef="numhba">
+				<th mat-header-cell *matHeaderCellDef> numhba </th>
+				<td mat-cell *matCellDef="let element"> {{element.numhba}} </td>
+			  </ng-container>
+			  <ng-container matColumnDef="numheavyatoms">
+				<th mat-header-cell *matHeaderCellDef> numheavyatoms </th>
+				<td mat-cell *matCellDef="let element"> {{element.numheavyatoms}} </td>
+			  </ng-container> -->
+			  <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+			  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+			</div>
+			<div class="mdl-cell mdl-cell--5-col">
+			  <mat-paginator [length]="pageMeta?.total_results"
+							 [pageSize]="pageMeta?.per_page"
+							 [pageSizeOptions]="pageSizeOptions"
+							 (page)="pageChange($event)"
+			  ></mat-paginator>
+			</div>
+			<!--表单选择-->
+			<mat-form-field>
+			  <mat-select placeholder="Select" [formControl]="toppings" multiple [(ngModel)]="displayedColumns" >
+				<mat-select-trigger>
+				  {{toppings.value ? toppings.value[0] : ''}}
+				  <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+					(+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? '' : ''}})
+				  </span>
+				</mat-select-trigger>
+				<mat-option *ngFor="let topping of toppingList" [value]="topping" >{{topping}}</mat-option>
+			  </mat-select>
+			</mat-form-field>

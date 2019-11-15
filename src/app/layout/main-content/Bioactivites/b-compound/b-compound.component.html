@@ -1,0 +1,44 @@
+<h4>The following targets are reported to interact with {{name}} </h4>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-bordered" >
+  <tr>
+    <th>Target</th>
+    <th>Bioactivites</th>
+    <!--<th>pChembl value</th>-->
+    <th>Reference</th>
+  </tr>
+  <tr *ngFor='let ar of arr'>
+    <td> 
+        <button mat-button color="primary" (click)="openMoleculePropertiesDialog(ar.target_id)">{{ar.target_id}}</button>
+    </td>
+    <td>
+        <ng-container>
+            <p>{{ar?.activity_type_sub}}&nbsp;&nbsp;&nbsp;{{ar?.activity_value}}
+              ({{ar?.activity_units}})</p>
+          </ng-container>
+    </td>
+    <td>
+        <ng-container >
+          <p>
+            <a href="https://doi.org/{{ar?.doc_doi}}" target="_blank">{{ar?.reference}}</a>
+            <!-- <button mat-button color="primary" (click)="openDocDialog(mole?.id)">(Detail)</button> -->
+          </p>
+        </ng-container>
+    </td>
+  </tr>
+</table>
+<div>
+    <div class="mdl-grid mdl-grid--no-spacing">
+      <div class="mdl-cell mdl-cell--3-col">
+      </div>
+      <div class="mdl-cell mdl-cell--5-col">
+        <mat-paginator [length]="pageMeta?.total_results"
+                       [pageSize]="pageMeta?.per_page"
+                       [pageSizeOptions]="pageSizeOptions"
+                       (page)="pageChange($event)"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+  <app-b-derivative></app-b-derivative>

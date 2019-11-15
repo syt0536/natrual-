@@ -1,0 +1,189 @@
+<div class="container">
+  <h4>Keyword Search</h4>
+  <mat-tab-group class="demo-tab-group">
+    <mat-tab label="Compounds">
+      <div class="mdl-cell mdl-cell--8-col mdl-cell--2-offset">
+        <form #drugForm="ngForm" (ngSubmit)="drugSubmit()">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Search type"
+                        (selectionChange)="drugSearchTypeChange(drugSelectedType)"
+                        [(ngModel)]="drugSelectedType" name="Input Type">
+              <mat-option *ngFor="let type of drugSearchTypeList" [value]="type.inputType">
+                {{type.inputType}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput [(ngModel)]="drugKeyword"
+                   required name="keyword" [placeholder]="'Input keyword'">
+          </mat-form-field>
+          <br/>
+          <button mat-raised-button color="primary" type="submit" [disabled]="drugForm.invalid">
+            Submit
+          </button>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Target">
+      <div class="mdl-cell mdl-cell--8-col mdl-cell--2-offset tab-container">
+        <form #targetForm="ngForm" (ngSubmit)="targetSubmit()">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Search type"
+                        (selectionChange)="targetSearchTypeChange(targetSelectedType)"
+                        [(ngModel)]="targetSelectedType" name="Input Type">
+              <mat-option *ngFor="let type of targetSearchTypeList" [value]="type.inputType">
+                {{type.inputType}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput [(ngModel)]="targetKeyword"
+                   required name="keyword" [placeholder]="'Input keyword'">
+          </mat-form-field>
+          <br/>
+          <button mat-raised-button color="primary" type="submit" [disabled]="targetForm.invalid">
+            Submit
+          </button>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Pathway">
+      <div class="mdl-cell mdl-cell--8-col mdl-cell--2-offset tab-container">
+        <form #pathwayForm="ngForm" (ngSubmit)="pathwaySubmit()">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Search type"
+                        (selectionChange)="pathwaySearchTypeChange(pathwaySelectedType)"
+                        [(ngModel)]="pathwaySelectedType" name="Input Type">
+              <mat-option *ngFor="let type of pathwaySearchTypeList" [value]="type.inputType">
+                {{type.inputType}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput [(ngModel)]="pathwayKeyword"
+                   required name="keyword" [placeholder]="'Input keyword'">
+          </mat-form-field>
+          <br/>
+          <button mat-raised-button color="primary" type="submit" [disabled]="pathwayForm.invalid">
+            Submit
+          </button>
+        </form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Property Range">
+    <form class="form-horizontal well-lg" [formGroup]="form" (ngSubmit)="onSubmitform()">
+      <!-- <div class='well'></div> -->
+       <div class="form-group">
+        <label class="control-label col-md-3" for="name">Range of alogP:</label>
+        <div class="col-md-3">
+          <input class="form-control" id="name" type="text" name="name" placeholder="Name"
+                 formControlName="name">
+        </div>
+
+
+        <label class="control-label col-md-1" for="name1">to</label>
+        <div class="col-md-3">
+          <input class="form-control" id="name1" type="text" name="name" placeholder="Name"
+                 formControlName="name1">
+        </div>
+      </div>
+               <div class="form-group">
+        <label class="control-label col-md-3" for="hbond">Number of H-bond Donor:</label>
+        <div class="col-md-3">
+          <input class="form-control" id="hbond" type="text" name="hbond" placeholder="Name"
+                 formControlName="hbond">
+        </div>
+
+        <label class="control-label col-md-1" for="hbond1">to</label>
+        <div class="col-md-3">
+          <input class="form-control" id="hbond1" type="text" name="hbond1" placeholder="Name"
+                 formControlName="hbond1">
+        </div>
+      </div>
+                       <div class="form-group">
+        <label class="control-label col-md-3" for="hbonda">Number of H-bond Acceptor:</label>
+        <div class="col-md-3">
+          <input class="form-control" id="hbonda" type="text" name="hbonda" placeholder="Name"
+                 formControlName="hbonda">
+        </div>
+        <label class="control-label col-md-1" for="hbonda1">to</label>
+        <div class="col-md-3">
+          <input class="form-control" id="hbonda1" type="text" name="hbonda1" placeholder="Name"
+                 formControlName="hbonda1">
+        </div>
+      </div>
+                       <div class="form-group">
+        <label class="control-label col-md-3" for="rot">Number of Rotatable bond:</label>
+        <div class="col-md-3">
+          <input class="form-control" id="rot" type="text" name="rot" placeholder="Name"
+                 formControlName="rot">
+        </div>
+        <label class="control-label col-md-1" for="rot1">to</label>
+        <div class="col-md-3">
+          <input class="form-control" id="rot1" type="text" name="rot1" placeholder="Name"
+                 formControlName="rot1">
+        </div> 
+       
+        <div class="form-group" style="margin-top: 100px;">
+          <div class="col-md-5   col-md-offset-5">
+            <button class="btn btn-success btn-sm" type="reset" >Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-warning btn-sm" type="submit" >Submit</button>
+          </div>
+        </div>
+      </div> 
+        <!-- <input>to <input>
+        Range of Molecule Weight:<input>to <input>
+        Number of H-bond Donor:<input>to <input>
+        Number of H-bond Acceptor:<input>to <input>
+        Number of Rotatable bond:<input>to <input> -->
+        </form>    
+  
+    </mat-tab>
+  </mat-tab-group>
+  <br>
+  <h4>Structure Search</h4>
+  <div class="row">
+    <div class="col-md-5">
+      <app-jsme [elementId]="'structure-search'"
+                [width]="'95%'"
+                [height]="'400px'"
+                [showDemo]="true"
+      >loading JSME widget
+      </app-jsme>
+    </div>
+    <div class="col-md-2 content-center">
+      <button mat-raised-button color="accent" (click)="getJsmeSmiles()">
+        Get Smiles
+      </button>
+      <button mat-icon-button (click)="getJsmeSmiles()" color="warn">
+        <mat-icon>trending_flat</mat-icon>
+      </button>
+    </div>
+    <div class="col-md-5">
+      <h5>SMILES:</h5>
+      <textarea class="smile-container" [value]="jsmeSmiles" #smiles></textarea>
+      <h6>Structure Type:</h6>
+      <mat-radio-group [(ngModel)]="structureType">
+        <mat-radio-button *ngFor="let typeEl of structureTypes" [value]="typeEl">
+          {{typeEl | titlecase}}&nbsp;&nbsp;&nbsp;
+        </mat-radio-button>
+      </mat-radio-group>
+      <div>
+        <h6>Tanimoto threshold: {{similaritySlider.value}}</h6>
+        <mat-slider class="slider-width"
+                    min="0.1" max="1" step="0.01"
+                    [(ngModel)]="similarity"
+                    [thumbLabel]="true"
+                    [disabled]="structureType === 'substructure'"
+                    #similaritySlider>
+        </mat-slider>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onSubmit(smiles.value)"
+        >Search
+        </button>
+      </div>
+    </div>
+  </div>
+

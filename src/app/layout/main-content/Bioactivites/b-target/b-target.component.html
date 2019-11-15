@@ -1,0 +1,56 @@
+
+<div class='title'><h4>The following compounds are reported to interact with {{namet}} </h4></div>
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-bordered"  >
+    
+  <tr>
+    <th>Compounds</th>
+    <th>Bioactivites</th>
+    <!--<th>pChembl value</th>-->
+    <th>Reference</th>
+  </tr>
+  <tr *ngFor='let ar of arr'  >
+    <td> 
+      <!-- <ng-container> 
+      <app-jsme [elementId]="'ar.database_id'"
+              [width]="'100px'"
+              [height]="'100px'"
+              [option]="'depict nozoom noshowdraganddropsymbolindepictmode'"
+              [molString]="arro[0].canonical_smiles"
+    ></app-jsme>
+      
+    </ng-container> -->
+    <button mat-button color="primary" (click)="openMoleculePropertiesDialog(ar.database_id)">
+        {{ar.database_id}}
+      </button>
+    <!-- <a  [routerLink]="['/compound/'+ar.database_id]" routerLinkActive="router-link-active">{{ar.database_id}}</a> -->
+    </td>
+    <td>
+        <ng-container>
+            <p>{{ar?.activity_type_sub}}&nbsp;&nbsp;&nbsp;{{ar?.activity_value}}
+              ({{ar?.activity_units}})</p>
+          </ng-container>
+    </td>
+    <td>
+    <ng-container >
+        <p>
+          <a href="https://doi.org/{{ar?.doc_doi}}" target="_blank">{{ar?.reference}}</a>
+            <!-- <button mat-button color="primary" (click)="openDocDialog(mole?.id)">(Detail)</button> -->
+        </p>
+      </ng-container>
+    </td>
+  </tr>
+</table>
+<div>
+    <div class="mdl-grid mdl-grid--no-spacing">
+      <div class="mdl-cell mdl-cell--3-col">
+      </div>
+      <div class="mdl-cell mdl-cell--5-col">
+        <mat-paginator [length]="pageMeta?.total_results"
+                       [pageSize]="pageMeta?.per_page"
+                       [pageSizeOptions]="pageSizeOptions"
+                       (page)="pageChange($event)"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>

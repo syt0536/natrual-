@@ -1,0 +1,23 @@
+/* .mdl-cell{
+    margin-left: 100px;
+    margin-top: 50px;
+} */
+.navbar{
+    background-color: #333333;
+    color:aliceblue;
+    /* height:70px;
+    line-height:70px; */
+}
+.nav{
+    color: aliceblue;
+    /* height:70px;
+    line-height:70px; */
+}
+*{margin:0px;padding:0px}
+/* .content{
+width:90%;
+margin:0 auto;
+} */
+.container-fluid{
+    background-image: linear-gradient(to top,#2C3335 0%,#1a1a1a 50%,#2C3335 100%);
+}

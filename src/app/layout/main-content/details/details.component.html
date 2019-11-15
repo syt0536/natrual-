@@ -1,0 +1,193 @@
+<h4><b>Natural Products </b> Basic Information</h4>
+<div class="mdl-grid" >
+  <div class="mdl-cell mdl-cell--4-col"  >
+    <app-jsme [elementId]="'drug-detail'"
+              [width]="'350px'"
+              [height]="'320px'"
+              [option]="'depict nozoom noshowdraganddropsymbolindepictmode'"
+              [molString]="arr.canonical_smiles"
+    ></app-jsme>
+  </div>
+  <div class="mdl-cell mdl-cell--8-col" >
+    <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+      <tr>
+        <th class="th-width">Database ID</th>
+        <td class="mdl-data-table__cell--non-numeric">{{arr?.database_id}}</td>
+      </tr>
+      <tr>
+        <th class="th-width">Pref Name</th>
+        <td class="mdl-data-table__cell--non-numeric">{{arr2.pref_name}}</td>
+	  </tr>
+      <tr>
+			<th class="th-width">SN ID</th>
+			<td class="mdl-data-table__cell--non-numeric">
+			  <a href="https://www.drugbank.ca/drugs/{{arr1?.drugbank_id}}" target="_blank">
+			  {{arr1.sn_id}}</a>
+			</td>
+		  </tr>	  
+      <tr>
+        <th class="th-width">Pubchem ID</th>
+        <td class="mdl-data-table__cell--non-numeric">
+          <a href="https://pubchem.ncbi.nlm.nih.gov/compound/{{arr1.pubchem_cid}}" target="_blank">
+          {{arr1.pubchem_cid}}</a>
+        </td>
+	  </tr>
+	  <tr>
+			<th class="th-width">Chembl ID</th>
+			<td class="mdl-data-table__cell--non-numeric">
+			  <a href="https://www.ebi.ac.uk/chembl/compound_report_card/{{arr1.chembl_id}}" target="_blank">
+			  {{arr1.chembl_id}}</a>
+			</td>
+		  </tr>
+		  <tr>
+				<th class="th-width">NP ID</th>
+				<td class="mdl-data-table__cell--non-numeric">
+				  {{arr1.np_id}}
+				</td>
+			  </tr>
+      <tr>
+        <th class="th-width">IUPAC</th>
+        <td class="mdl-data-table__cell--non-numeric">{{arr2.iupac_name}}</td>
+      </tr>
+      <tr>
+        <th class="th-width">Smiles</th>
+        <td class="mdl-data-table__cell--non-numeric">{{arr.canonical_smiles}}</td>
+      </tr>
+      <tr>
+        <th class="th-width">CAS</th>
+        <td class="mdl-data-table__cell--non-numeric">
+          <a href="http://www.molbase.com/en/search.html?search_keyword={{arr2?.cas}}" target="_blank">
+            {{arr2.cas}}
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th class="th-width">CID</th>
+        <td class="mdl-data-table__cell--non-numeric">
+          <a href="https://pubchem.ncbi.nlm.nih.gov/compound/{{arr2?.cid}}" target="_blank">
+            {{arr2?.cid}}
+          </a>
+        </td>
+	  </tr>
+	  <tr>
+			<th class="th-width">NPD</th>
+			<td class="mdl-data-table__cell--non-numeric"  >
+			  <span *ngFor='let ar3 of arr3'>
+				{{ar3?.derivative_id}} &nbsp;&nbsp; 
+			  </span>
+			</td>
+      </tr>
+      <tr>
+          <th class="th-width">Bioactivity</th>
+          <td class="mdl-data-table__cell--non-numeric"  >
+              <a  [routerLink]="['/b/'+arr.database_id]" routerLinkActive="router-link-active">{{pageMeta2.total_results}}</a>
+          </td>
+          </tr>
+    </table>
+  </div>
+</div>
+
+<h4>Structure Information</h4>
+<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+  <tr>
+    <th class="mdl-data-table__cell--non-numeric">Molecule Formula</th>
+    <th class="mdl-data-table__cell--non-numeric">Mol Weight</th>
+    <th class="mdl-data-table__cell--non-numeric">PSA</th>
+    <th class="mdl-data-table__cell--non-numeric">SlogP</th>
+    <th class="mdl-data-table__cell--non-numeric">HBD</th>
+    <th class="mdl-data-table__cell--non-numeric">HBA</th>
+	<th class="mdl-data-table__cell--non-numeric">RTB</th>
+	<th class="mdl-data-table__cell--non-numeric">numrings</th>
+	<th class="mdl-data-table__cell--non-numeric">numheavyatoms</th>
+  </tr>
+  <tr>
+    <td class="mdl-data-table__cell--non-numeric">{{arr.formula}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{arr.amw}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{arr.tpsa}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{arr.slogp}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{arr.numhbd}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{arr?.numhba}}</td>
+	<td class="mdl-data-table__cell--non-numeric">{{arr.numrotatablebonds}}</td>
+	<td class="mdl-data-table__cell--non-numeric">{{arr.numrings}}</td>
+	<td class="mdl-data-table__cell--non-numeric">{{arr.numheavyatoms}}</td>
+  </tr>
+</table>
+<h4>Related Target Information</h4>
+<div echarts [options]="obj2" class="demo-chart" style='float: left;margin-left:100px;'></div>
+<div echarts [options]="obj3" class="demo-chart" style='float: right;margin-right:100px;' ></div>
+
+<br/>
+<div style='height:380px;'></div>
+
+<div class="topContainer" >
+  <label> File Name: <input type="text" matInput id="fileName" placeholder="export" [(ngModel)]="fileName1"/> </label>
+  <label> Sheet Name: <input type="text" matInput id="sheetName" placeholder="ag-grid" maxlength="31" [(ngModel)]="sheetName1" /> </label>
+  <label> <button mat-raised-button color="primary"(click)="onBtExport()">Export to Csv</button> </label>
+</div>
+<ag-grid-angular 
+    #agGrid
+    style="width: 100%; height: 400px;"
+    class="ag-theme-material"
+    [rowData]="arra"
+    [columnDefs]="columnDefs"
+    [suppressHorizontalScroll]='true'
+    (rowClicked)="cellClicked($event)"
+    (gridReady)="onGridReady($event)"
+    [suppressCellSelection]='true'
+    [suppressRowClickSelection]='true'
+    (onSortChanged)='sortchanged($event)'
+    >
+</ag-grid-angular>
+<!-- <div  class = 'example-container mat-elevation-z8' > 
+  <table mat-table [dataSource]="arra" class="mat-elevation-z8">
+    <ng-container matColumnDef="Target Id">
+      <th mat-header-cell *matHeaderCellDef> Target Id </th>
+      <td mat-cell *matCellDef="let element"><a  [routerLink]="['/target/'+element.target_id]" routerLinkActive="router-link-active">{{element.target_id}} </a> </td>
+      </ng-container>
+    <ng-container matColumnDef="pref_name">
+    <th mat-header-cell *matHeaderCellDef> pref_name </th>
+    <td mat-cell *matCellDef="let element"> {{element.pref_name}}
+</td>
+    </ng-container>
+    <ng-container matColumnDef="target_chembl_id">
+      <th mat-header-cell *matHeaderCellDef> target_chembl_id </th>
+      <td mat-cell *matCellDef="let element"> {{element.target_chembl_id}} </td>
+      </ng-container>
+    <ng-container matColumnDef="target_type">
+    <th mat-header-cell *matHeaderCellDef> target_type </th>
+    <td mat-cell *matCellDef="let element"> {{element.target_type}}</td>
+    </ng-container>
+    <ng-container matColumnDef="organism">
+    <th mat-header-cell *matHeaderCellDef> organism </th>
+    <td mat-cell *matCellDef="let element"> {{element.organism}} </td>
+    </ng-container>  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div> -->
+  <div class="mdl-cell mdl-cell--12-col">
+    <mat-paginator [length]="pageMeta4?.total_results"
+           [pageSize]="pageMeta4?.per_page"
+           [pageSizeOptions]="pageSizeOptions"
+           (page)="pageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+	  <h4>Derivatives Information</h4>		  
+	  <el-table [model]="arra" [stripe]="true" center="all" >
+	  <el-table-column model-key="target_id" label="Derivatives ID" width="100">
+		</el-table-column>
+		<el-table-column   model-key="target_chembl_id" label="Similarity" width="100">				
+			</el-table-column>		
+	<el-table-column model-key="pref_name" label="Common Target" width="100">
+	</el-table-column>
+	<el-table-column model-key="target_type" label="Common skeleton" width="100">
+	</el-table-column>
+	<el-table-column model-key="organism" label="mmp" width="200" [render-html]="true">
+  </el-table-column>
+  <el-table-column model-key="target_type" label="Bioactivities" width="100">
+	</el-table-column>
+  </el-table>
+  <div>
+      <div echarts [options]="obj" class="demo-chart" ></div>
+</div>

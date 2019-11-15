@@ -1,0 +1,80 @@
+<div class='zhongjian'>
+  <div class='zhongbu'>     
+    <div class="row">
+      <img  class='lhp'src='../../../assets/11111.png'>
+      <div class="col-lg-6">      
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for ..." #content>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" (click)='hqnew()'>Search</button>
+            </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+  </div>
+</div>
+<div  class = 'example-container mat-elevation-z8' > 
+<!-- <table mat-table [dataSource]="images" 
+matSort
+matSortActive="Target Id"
+matSortDirection="desc"
+class="mat-elevation-z8">
+  <ng-container matColumnDef="Pref Name" >
+    <th mat-header-cell *matHeaderCellDef> Pref Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.pref_name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Target Id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Target Id </th>
+    <td mat-cell *matCellDef="let element">
+    <a  [routerLink]="['/target/'+element.target_id]" routerLinkActive="router-link-active">{{element.target_id}}</a> </td>
+  </ng-container>
+  <ng-container matColumnDef="Target Type">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Target Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.target_type}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Organism">
+    <th mat-header-cell *matHeaderCellDef> Organism</th>
+    <td mat-cell *matCellDef="let element"> {{element.organism}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
+<div class="topContainer">
+  <label> File Name: <input type="text" matInput id="fileName" placeholder="export" [(ngModel)]="fileName1"/> </label>
+  <label> Sheet Name: <input type="text" matInput id="sheetName" placeholder="ag-grid" maxlength="31" [(ngModel)]="sheetName1" /> </label>
+  <label> <button mat-raised-button color="primary"(click)="onBtExport()">Export to Csv</button> </label>
+</div>
+
+<ag-grid-angular 
+    #agGrid
+    style="width: 100%; height: 550px;"
+    class="ag-theme-material"
+    [rowData]="images"
+    [columnDefs]="columnDefs"
+    [suppressHorizontalScroll]='true'
+    (rowClicked)="cellClicked($event)"
+    (gridReady)="onGridReady($event)"
+    [suppressCellSelection]='true'
+    [suppressRowClickSelection]='true'
+    >
+</ag-grid-angular>
+</div>
+<div class="mdl-cell mdl-cell--12-col">
+  <mat-paginator [length]="pageMeta?.total_results"
+                 [pageSize]="pageMeta?.per_page"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="pageChange($event)"
+  >
+  </mat-paginator>
+</div>
+<!-- <mat-form-field>
+  <mat-select placeholder="Select" [formControl]="toppings" multiple [(ngModel)]="displayedColumns" >
+    <mat-select-trigger>
+      {{toppings.value ? toppings.value[0] : ''}}
+      <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+        (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? '' : ''}})
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping" >{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field> -->

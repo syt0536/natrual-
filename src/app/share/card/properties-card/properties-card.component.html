@@ -1,0 +1,67 @@
+<h5>Compound Properties</h5>
+<div class="mdl-grid" >
+    <div class="mdl-cell mdl-cell--4-col"  >
+        <app-jsme [elementId]="'drug-detail'"
+        [width]="'250px'"
+        [height]="'220px'"
+        [option]="'depict nozoom noshowdraganddropsymbolindepictmode'"
+        [molString]="moleculeStructure.canonical_smiles"
+></app-jsme>
+</div>
+<div class="mdl-cell mdl-cell--8-col"  >
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width: 100%">
+  <tr>
+    <th>ChEMBL ID</th>
+    <th class="mdl-data-table__cell--non-numeric">
+      <a href="https://www.ebi.ac.uk/chembl/compound_report_card/{{arr1.chembl_id}}" target="_blank">
+        {{arr1.chembl_id}}
+      </a>
+    </th>
+  </tr>
+  <!-- <tr>
+    <th>Smiles</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.canonical_smiles}}</td>
+  </tr> -->
+  <tr>
+    <th>Formula</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.formula}}</td>
+  </tr>
+  <tr>
+    <th>Mol Weight</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.amw}}</td>
+  </tr>
+  <tr>
+    <th>AlogP</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.slogp}}</td>
+  </tr>
+  <tr>
+    <th>HBD</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.numhbd}}</td>
+  </tr>
+  <tr>
+    <th>HBA</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.numhba}}</td>
+  </tr>
+  <tr>
+    <th>PSA</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.tpsa}}</td>
+  </tr>
+  <tr>
+    <th>RTB</th>
+    <td class="mdl-data-table__cell--non-numeric">{{moleculeStructure?.numrotatablebonds}}</td>
+  </tr>
+  <tr>
+    <th>Targets</th>
+    <td class="mdl-data-table__cell--non-numeric">
+      <button mat-button color="primary" (click)="goTargetList(); close()">
+        {{pageMeta.total_results}}
+      </button>
+      <!-- <a [routerLink]="['/target-table/?database_id='+moleculeStructure.database_id]" routerLinkActive="router-link-active">{{pageMeta.total_results}}</a> -->
+
+    </td>
+  </tr>
+</table>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Close</button>
+</div>
